@@ -22,104 +22,108 @@ namespace Camping.Data
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
-                    ID =1,
-                    Sku="",
-                    Name="",
-                    Price ="",
-                    Description="",
-                    Image=""
+                    ID = 1,
+                    Sku = "",
+                    Name = "",
+                    Price = 
+                    Description = "",
+                    Image = ""
 
                 },
                  new Product
                  {
-                     ID = 1,
+                     ID = 2,
                      Sku = "",
                      Name = "",
-                     Price = "",
+                     Price = 
                      Description = "",
                      Image = ""
 
                  },
                   new Product
                   {
-                      ID = 1,
+                      ID = 3,
                       Sku = "",
                       Name = "",
-                      Price = "",
+                      Price = 
                       Description = "",
                       Image = ""
 
                   },
                    new Product
                    {
-                       ID = 1,
+                       ID = 4,
                        Sku = "",
                        Name = "",
-                       Price = "",
+                       Price = 
                        Description = "",
                        Image = ""
 
                    },
                     new Product
                     {
-                        ID = 1,
+                        ID = 5,
                         Sku = "",
                         Name = "",
-                        Price = "",
+                        Price = 
                         Description = "",
                         Image = ""
 
                     },
                      new Product
                      {
-                         ID = 1,
+                         ID = 6,
                          Sku = "",
                          Name = "",
-                         Price = "",
+                         Price =
                          Description = "",
                          Image = ""
 
                      },
                       new Product
                       {
-                          ID = 2,
+                          ID = 7,
                           Sku = "",
                           Name = "",
-                          Price = "",
+                          Price = 
                           Description = "",
                           Image = ""
 
                       },
                        new Product
                        {
-                           ID = 1,
+                           ID = 8,
                            Sku = "",
                            Name = "",
-                           Price = "",
+                           Price = 
                            Description = "",
                            Image = ""
 
                        },
                         new Product
                         {
-                            ID = 1,
+                            ID = 9,
                             Sku = "",
                             Name = "",
-                            Price = "",
+                            Price = 
                             Description = "",
                             Image = ""
 
                         },
                          new Product
                          {
-                             ID = 1,
+                             ID = 10,
                              Sku = "",
                              Name = "",
-                             Price = "",
+                             Price = 0,
                              Description = "",
                              Image = ""
 
-                         },
+                         }
+                         );
+        }
+
+            public DbSet<Product> Products { get; set; }
         }
     }
 
