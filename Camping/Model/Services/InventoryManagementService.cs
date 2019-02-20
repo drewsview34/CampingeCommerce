@@ -1,4 +1,5 @@
-﻿using Camping.Model.Interface;
+﻿using Camping.Data;
+using Camping.Model.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,30 +9,39 @@ namespace Camping.Model.Services
 {
     public class InventoryManagementService : IInventory
     {
-        
-        public Task CreateInventory(Inventory inventory)
+       private CampingDbContext _context { get; }
+        public InventoryManagementService(CampingDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task CreateInventory(Inventory inventory)
+        {
+            _context.Inventory.Add(Inventory);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteInventory(int id)
+        public async Task DeleteInventory(int id)
         {
-            throw new NotImplementedException();
+            Inventory inventory = _context.Inventory.FirstOrDefault(i => i.id == id);
+            _context.Inventory.Remove(Inventory);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Inventory>> GetInventory()
+        public async Task<IEnumerable<Inventory>> GetInventory()
         {
-            throw new NotImplementedException();
+            return await _context.Inventory.ToListAsync();
         }
 
-        public Task<Inventory> GetIventory(int id)
+        public async Task<Inventory> GetIventory(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Inventory.FirstOrDefaultAsync(inventory => inventory.ID == id);
         }
+    
 
-        public Task UpdateInventory(Inventory inventory)
+        public async Task UpdateInventory(Inventory inventory)
         {
-            throw new NotImplementedException();
+            _context.Inventory.Update(inventory);
+            await _context.SaveChangesAsync();
         }
     }
 }
