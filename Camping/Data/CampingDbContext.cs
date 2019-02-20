@@ -81,8 +81,8 @@ namespace Camping.Data
                       new Product
                       {
                           ID = 7,
-                          Sku = "BS6-009",
-                          Name = "Map",
+                          Sku = "bs6-009",
+                          Name = "map",
                           Price = 10,
                           Description = "",
                           Image = ""
@@ -121,7 +121,7 @@ namespace Camping.Data
                          );
         }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Inventory { get; set; }
     }
 }   
 
