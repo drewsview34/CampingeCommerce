@@ -10,9 +10,7 @@ namespace Camping.Data
 {
     public class CampingDbContext : DbContext
     {
-        public CampingDbContext(DbContextOptions<CampingDbContext> options) : base
-
-           (options)
+        public CampingDbContext(DbContextOptions<CampingDbContext> options) : base(options)
         {
 
         }
@@ -23,9 +21,9 @@ namespace Camping.Data
                 new Product
                 {
                     ID = 1,
-                    Sku = "",
-                    Name = "",
-                    Price = 0,
+                    Sku = "BS6-002",
+                    Name = "Tent",
+                    Price = 90,
                     Description = "",
                     Image = ""
 
@@ -33,9 +31,9 @@ namespace Camping.Data
                  new Product
                  {
                      ID = 2,
-                     Sku = "",
-                     Name = "",
-                     Price = 0,
+                     Sku = "BS6-003",
+                     Name = "Sleeping Gear",
+                     Price = 80,
                      Description = "",
                      Image = ""
 
@@ -43,9 +41,9 @@ namespace Camping.Data
                   new Product
                   {
                       ID = 3,
-                      Sku = "",
-                      Name = "",
-                      Price = 0,
+                      Sku = "BS6-004",
+                      Name = "FlashLight",
+                      Price = 30,
                       Description = "",
                       Image = ""
 
@@ -53,9 +51,9 @@ namespace Camping.Data
                    new Product
                    {
                        ID = 4,
-                       Sku = "",
-                       Name = "",
-                       Price = 0,
+                       Sku = "BS6-006",
+                       Name = "lanterns",
+                       Price = 40,
                        Description = "",
                        Image = ""
 
@@ -63,9 +61,9 @@ namespace Camping.Data
                     new Product
                     {
                         ID = 5,
-                        Sku = "",
-                        Name = "",
-                        Price = 0,
+                        Sku = "BS6-007",
+                        Name = "Gloves",
+                        Price = 80,
                         Description = "",
                         Image = ""
 
@@ -73,9 +71,9 @@ namespace Camping.Data
                      new Product
                      {
                          ID = 6,
-                         Sku = "",
-                         Name = "",
-                         Price = 0,
+                         Sku = "BS6-008",
+                         Name = "Rain shell",
+                         Price = 20,
                          Description = "",
                          Image = ""
 
@@ -83,9 +81,9 @@ namespace Camping.Data
                       new Product
                       {
                           ID = 7,
-                          Sku = "",
-                          Name = "",
-                          Price = 0,
+                          Sku = "bs6-009",
+                          Name = "map",
+                          Price = 10,
                           Description = "",
                           Image = ""
 
@@ -93,9 +91,9 @@ namespace Camping.Data
                        new Product
                        {
                            ID = 8,
-                           Sku = "",
-                           Name = "",
-                           Price = 0,
+                           Sku = "BS6-000",
+                           Name = "lighter",
+                           Price = 10,
                            Description = "",
                            Image = ""
 
@@ -104,8 +102,8 @@ namespace Camping.Data
                         {
                             ID = 9,
                             Sku = "",
-                            Name = "",
-                            Price = 0,
+                            Name = "Hat",
+                            Price = 50,
                             Description = "",
                             Image = ""
 
@@ -114,8 +112,8 @@ namespace Camping.Data
                          {
                              ID = 10,
                              Sku = "",
-                             Name = "",
-                             Price = 0,
+                             Name = "Gps",
+                             Price = 200,
                              Description = "",
                              Image = ""
 
@@ -123,7 +121,7 @@ namespace Camping.Data
                          );
         }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Inventory { get; set; }
     }
 }   
 
