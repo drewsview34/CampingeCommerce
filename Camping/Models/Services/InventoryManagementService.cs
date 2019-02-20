@@ -1,5 +1,7 @@
 ﻿using Camping.Data;
 using Camping.Model.Interface;
+using Camping.Model.ProductModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,37 +12,42 @@ namespace Camping.Model.Services
     public class InventoryManagementService : IInventory
     {
        private CampingDbContext _context { get; }
+
         public InventoryManagementService(CampingDbContext context)
         {
             _context = context;
         }
-        public async Task CreateInventory(Inventory inventory)
+
+        public async Task CreateInventory(Product inventory)
         {
-            _context.Inventory.Add(Inventory);
+            _context.Add(inventory);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteInventory(int id)
         {
-            Inventory inventory = _context.Inventory.FirstOrDefault(i => i.id == id);
-            _context.Inventory.Remove(Inventory);
-            await _context.SaveChangesAsync();
+            Product inventory = await _context.Inventory.FindAsync(id);
+            if (inventory != null && inventory.ID == id)
+            {
+                _context.Remove(inventory);
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public async Task<IEnumerable<Inventory>> GetInventory()
+        public async Task<List<Product>> GetInventory()
         {
             return await _context.Inventory.ToListAsync();
         }
 
-        public async Task<Inventory> GetIventory(int id)
+        public async Task<Product> GetIventory(int id)
         {
             return await _context.Inventory.FirstOrDefaultAsync(inventory => inventory.ID == id);
         }
     
 
-        public async Task UpdateInventory(Inventory inventory)
+        public async Task UpdateInventory(Product inventory)
         {
-            _context.Inventory.Update(inventory);
+            _context.Update(inventory);
             await _context.SaveChangesAsync();
         }
     }
