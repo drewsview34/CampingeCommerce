@@ -8,7 +8,7 @@ using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace Camping.Data
 {
-    public class CampingDbContext:DbContext
+    public class CampingDbContext : DbContext
     {
         public CampingDbContext(DbContextOptions<CampingDbContext> options) : base
 
@@ -75,7 +75,7 @@ namespace Camping.Data
                          ID = 6,
                          Sku = "",
                          Name = "",
-                         Price =0,
+                         Price = 0,
                          Description = "",
                          Image = ""
 
@@ -85,7 +85,7 @@ namespace Camping.Data
                           ID = 7,
                           Sku = "",
                           Name = "",
-                          Price =0, 
+                          Price = 0,
                           Description = "",
                           Image = ""
 
@@ -105,7 +105,7 @@ namespace Camping.Data
                             ID = 9,
                             Sku = "",
                             Name = "",
-                            Price =0, 
+                            Price = 0,
                             Description = "",
                             Image = ""
 
@@ -123,9 +123,9 @@ namespace Camping.Data
                          );
         }
 
-            public DbSet<Product> Products { get; set; }
-        }
+        public DbSet<Product> Products { get; set; }
     }
+}   
 
 
-}
+
