@@ -10,9 +10,7 @@ namespace Camping.Data
 {
     public class CampingDbContext : DbContext
     {
-        public CampingDbContext(DbContextOptions<CampingDbContext> options) : base
-
-           (options)
+        public CampingDbContext(DbContextOptions<CampingDbContext> options) : base(options)
         {
 
         }
