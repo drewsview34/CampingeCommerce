@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Camping.Data;
+using Camping.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,12 @@ namespace Camping
         {
             services.AddMvc();
 
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+
+            //IdentityDB
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
+            //CampDb
             services.AddDbContext<CampingDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
         }
@@ -35,17 +43,20 @@ namespace Camping
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
+            app.UseMvcWithDefaultRoute();
+
+            app.Run(async (context) =>
             {
-                routes.MapRoute(
-                name: "default",
-                template: "{controller=Home}/{action=Index}/{id?}");
+                await context.Response.WriteAsync("Hello World!");
             });
         }
     }
