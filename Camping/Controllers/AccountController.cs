@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Controllers
 {
-    public class AccountController
+    public class AccountController : Controller
     {
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
