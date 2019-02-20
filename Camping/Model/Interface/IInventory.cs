@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Model.Interface
 {
-    public interface IInventory
+    public interface IInventory:Dbcontext
     {
         Task CreateInventory(Inventory inventory);
         Task <Inventory>GetIventory(int id);
