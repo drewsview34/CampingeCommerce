@@ -25,7 +25,7 @@ namespace Camping.Data
                     ID = 1,
                     Sku = "",
                     Name = "",
-                    Price = 
+                    Price = 0,
                     Description = "",
                     Image = ""
 
@@ -35,7 +35,7 @@ namespace Camping.Data
                      ID = 2,
                      Sku = "",
                      Name = "",
-                     Price = 
+                     Price = 0,
                      Description = "",
                      Image = ""
 
@@ -45,7 +45,7 @@ namespace Camping.Data
                       ID = 3,
                       Sku = "",
                       Name = "",
-                      Price = 
+                      Price = 0,
                       Description = "",
                       Image = ""
 
@@ -55,7 +55,7 @@ namespace Camping.Data
                        ID = 4,
                        Sku = "",
                        Name = "",
-                       Price = 
+                       Price = 0,
                        Description = "",
                        Image = ""
 
@@ -65,7 +65,7 @@ namespace Camping.Data
                         ID = 5,
                         Sku = "",
                         Name = "",
-                        Price = 
+                        Price = 0,
                         Description = "",
                         Image = ""
 
@@ -75,7 +75,7 @@ namespace Camping.Data
                          ID = 6,
                          Sku = "",
                          Name = "",
-                         Price =
+                         Price =0,
                          Description = "",
                          Image = ""
 
@@ -85,7 +85,7 @@ namespace Camping.Data
                           ID = 7,
                           Sku = "",
                           Name = "",
-                          Price = 
+                          Price =0, 
                           Description = "",
                           Image = ""
 
@@ -95,7 +95,7 @@ namespace Camping.Data
                            ID = 8,
                            Sku = "",
                            Name = "",
-                           Price = 
+                           Price = 0,
                            Description = "",
                            Image = ""
 
@@ -105,7 +105,7 @@ namespace Camping.Data
                             ID = 9,
                             Sku = "",
                             Name = "",
-                            Price = 
+                            Price =0, 
                             Description = "",
                             Image = ""
 
