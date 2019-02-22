@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Models.Handler
 {
-    public class MinimumAge : AuthorizationHandler<MinAgeRequirement>, IAuthorizationRequirment
-    {
+    public class MinimumAge : c
         private int _minimumAge;
         public MinimumAge(int minimumAge)
         {
