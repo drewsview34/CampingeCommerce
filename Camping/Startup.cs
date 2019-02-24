@@ -50,15 +50,15 @@ namespace Camping
 
             {
 
-                options.AddPolicy("Over18Only", policy => policy.Requirements.Add(new MinAge(18)));
+                options.AddPolicy("Over18Only", policy => policy.Requirements.Add(new MinimumAgeRequirement(18)));
 
-                options.AddPolicy("Over18Only", policy => policy.Requirements.Add( new MinimumAgeRequirement()));
+                options.AddPolicy("Over18Only", policy => policy.Requirements.Add( new MinAge()));
 
             });
 
 
 
-            services.AddScoped<IAuthorizationHandler, NewMinAgeHandler>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

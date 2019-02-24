@@ -18,7 +18,7 @@ namespace BlogPostCMS.Models.Handler
 
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, MinimumAgeRequirement requirement)
         {
-            if (!context.User.HasClaim(c => c.Type == ClaimTypes.DateOfBirth))
+            if (!context.User.HasClaim(A => A.Type == ClaimTypes.DateOfBirth))
             {
                 return Task.CompletedTask;
             }
