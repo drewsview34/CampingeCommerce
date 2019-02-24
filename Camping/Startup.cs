@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogPostCMS.Models.Handler;
 using Camping.Data;
 using Camping.Model.Interface;
 using Camping.Model.Services;
 using Camping.Models;
+using Camping.Models.Handler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +45,20 @@ namespace Camping
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+
+            services.AddAuthorization(options =>
+
+            {
+
+                options.AddPolicy("Over18Only", policy => policy.Requirements.Add(new MinAge(18)));
+
+                options.AddPolicy("Over18Only", policy => policy.Requirements.Add( new MinimumAgeRequirement()));
+
+            });
+
+
+
+            services.AddScoped<IAuthorizationHandler, NewMinAgeHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
