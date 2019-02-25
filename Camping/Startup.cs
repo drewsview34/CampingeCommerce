@@ -50,9 +50,9 @@ namespace Camping
 
             {
 
-                options.AddPolicy("Over18Only", policy => policy.Requirements.Add(new MinimumAgeRequirement(18)));
+                options.AddPolicy("UsersOnly", policy => policy.RequireClaim(UserEmailAddress);
 
-                options.AddPolicy("Over18Only", policy => policy.Requirements.Add( new MinAge()));
+                options.AddPolicy("UsersOnly", policy => policy.Requirements.Add( new MinAge()));
 
             });
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Controllers
 {
-    [Authorize(Policy = "Over18Only")]
+    [Authorize(Policy = "UserEmailOnly")]
     /// what am thinking here is to forbid users under 18 to use creditcards
     public class PolicyController:Controller
     {
@@ -17,13 +17,6 @@ namespace Camping.Controllers
             return View();
         }
 
-        [Authorize]
-
-        public IActionResult Customers()
-
-        {
-            return View();
-
-        }
+       
     }
 }
