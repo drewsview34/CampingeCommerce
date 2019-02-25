@@ -49,10 +49,11 @@ namespace Camping
             services.AddAuthorization(options =>
 
             {
+                options.AddPolicy("ValidEmailAddressonly", policy => policy.Requirements.Add(new EmailAddressRequirement(EmailAddress)));
+               
 
-                options.AddPolicy("UsersOnly", policy => policy.RequireClaim(UserEmailAddress);
 
-                options.AddPolicy("UsersOnly", policy => policy.Requirements.Add( new MinAge()));
+
 
             });
 
