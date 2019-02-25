@@ -6,6 +6,7 @@ using Camping.Data;
 using Camping.Model.Interface;
 using Camping.Model.Services;
 using Camping.Models;
+using Camping.Models.Handler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,12 @@ namespace Camping
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("EmailAddressOnly", policy => policy.Requirements.Add(new EmailAddressRequirment(Email)));
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

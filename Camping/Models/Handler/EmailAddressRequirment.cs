@@ -26,15 +26,23 @@ namespace Camping.Models.Handler
             
             ClaimsPrincipal user = ClaimsPrincipal.Current;
             string email = user.FindFirst(ClaimTypes.Email).Value;
-            
-            if(email = )
+
+            bool Validemail(string emailaddress)
             {
-
+                try
+                {
+                    var address = new System.Net.Mail.MailAddress(emailaddress);
+                    return address.Address == emailaddress;
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            
+            return Task.CompletedTask;
 
-            
-            
+
+
         }
     }
 }
