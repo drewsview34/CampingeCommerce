@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Models.Handler
 {
-    public class MinAgeRequirement
+    public class EmailAddress
     {
     }
 }
