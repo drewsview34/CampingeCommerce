@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -20,8 +21,20 @@ namespace Camping.Models.Handler
             {
                 return Task.CompletedTask;
             }
-            ValidEmail Email = Equals(context.User.FindFirst(e => e.Type == ClaimTypes.Email));
-            string email =
+            EmailAddress Email =Convert.Tolower( context.User.FindFirst(e => e.Type == ClaimTypes.Email).Value);
+
+            
+            ClaimsPrincipal user = ClaimsPrincipal.Current;
+            string email = user.FindFirst(ClaimTypes.Email).Value;
+            
+            if(email = )
+            {
+
+            }
+            
+
+            
+            
         }
     }
 }
