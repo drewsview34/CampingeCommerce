@@ -60,12 +60,12 @@ namespace Camping
         {
 
             app.UseAuthentication();
+            app.UseStaticFiles();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
 
             app.UseMvcWithDefaultRoute();
 
