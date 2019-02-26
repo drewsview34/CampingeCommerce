@@ -1,52 +1,47 @@
-﻿using Camping.Models.Handler;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace BlogPostCMS.Models.Handler
+namespace Camping.Models.Handler
 {
-    public class EmailAddressRequirement : AuthorizationHandler<EmailAddressRequirement>, IAuthorizationRequirement
+    public class EmailAddressRequirment : AuthorizationHandler<EmailAddressRequirment>, IAuthorizationRequirement
     {
-        private string _emailAddress;
-       
-
-        public EmailAddressRequirement(string emailAddress)
+        
+        
+        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EmailAddressRequirment requirement)
         {
-            _emailAddress = emailAddress;
-        }
+            if (!context.User.HasClaim(c => c.Type == ClaimTypes.Email))
 
-      
-
-        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EmailAddressRequirement requirement)
-        {
-            if (!context.User.HasClaim(A => A.Type == ClaimTypes.EmailAddress))
             {
                 return Task.CompletedTask;
+
             }
 
-          //  Email emailAddress = context.User.FindFirst(u => u.Type == ClaimTypes.EmailAddress);
+            List<string> allowedEmailDomains = new List<string> { "hotmail.com", "gmail.com", "yahoo.com" };
 
-            bool Email(string emailaddress)
+            var emailDomain = context.User.FindFirst(email => email.Type == ClaimTypes.Email).Value;
+            foreach(var email in allowedEmailDomains)
             {
-                try
+                if (emailDomain.Contains(email))
+
                 {
-                    var address = new System.Net.Mail.MailAddress(emailaddress);
-                    return address.Address == emailaddress;
+                    context.Succeed(requirement);
                 }
-                catch
-                {
-                    return false;
-                }
+
             }
+                
 
+           
 
-        }          
-
+                return Task.CompletedTask;
         }
 
-        
     }
+}
 
