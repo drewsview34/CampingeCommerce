@@ -42,9 +42,9 @@ namespace Camping.Models.Handler
             if (!_allowedEmailDomains.Contains(_userEmail.ToLower()))
 
             {
-                var errors = errors.ToList();
-                errors.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
-                result = new IdentityResult(errors);
+              
+                 _allowedEmailDomains.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
+               
             }
 
 

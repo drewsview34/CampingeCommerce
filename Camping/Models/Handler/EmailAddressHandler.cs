@@ -7,36 +7,43 @@ using System.Threading.Tasks;
 
 namespace Camping.Models.Handler
 {
-    public class EmailAddressHandler : AuthorizationHandler<NewEmailAddressRequirment>
-    {
-        List<string> _allowedEmailDomains = new List<string> { "outlook.com", "hotmail.com", "gmail.com", "yahoo.com" };
+    public class EmailAddressHandler : AuthorizationHandler<EmailAddressRequirment>
+    {       
 
-        protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, NewEmailAddressRequirment requirement)
+        protected override  Task HandleRequirementAsync(AuthorizationHandlerContext context, EmailAddressRequirment requirement)
         {
-            IdentityResult result = await base.ValidateAsync(user);
+            if (!context.User.HasClaim(c => c.Type == ClaimTypes.Email))
 
-            var emailDomain = user.Email.Split('@')[1];
+            {
+                return Task.CompletedTask;
+            }
 
-            if (!_allowedEmailDomains.Contains(emailDomain.ToLower()))
+            List<string> _allowedEmailDomains = new List<string> { "outlook.com", "hotmail.com", "gmail.com", "yahoo.com" };
+           
+            var emailDomain = _userEmail.Split('@')[1];
+
+            if (_allowedEmailDomains.Contains(_userEmail.ToLower()))
+
+            {
+                context.Succeed(requirement);
+
+            }
+            if (!_allowedEmailDomains.Contains(_userEmail.ToLower()))
 
             {
 
-                var errors = result.Errors.ToList();
-
-                errors.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
-
-                result = new IdentityResult(errors);
+                _allowedEmailDomains.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
 
             }
 
 
-
-            return result;
+            return Task.CompletedTask;
 
         }
 
     }
-
 }
+
+
     
 
