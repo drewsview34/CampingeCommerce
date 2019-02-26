@@ -18,9 +18,9 @@ namespace Camping.Models.Handler
                 return Task.CompletedTask;
             }
 
-            List<string> _allowedEmailDomains = new List<string> { "outlook.com", "hotmail.com", "gmail.com", "yahoo.com" };
+            List<string> _allowedEmailDomains = new List<string> { "hotmail.com", "gmail.com", "yahoo.com" };
            
-            var emailDomain = _userEmail.Split('@')[1];
+            var emailDomain = userEmail.Split('@')[1];
 
             if (_allowedEmailDomains.Contains(_userEmail.ToLower()))
 

@@ -29,27 +29,23 @@ namespace Camping.Models.Handler
 
             }
 
-            List<string> _allowedEmailDomains = new List<string> { "outlook.com", "hotmail.com", "gmail.com", "yahoo.com" };
-            //IdentityResult result = await base.ValidateAsync(user);
+            List<string> _allowedEmailDomains = new List<string> { "hotmail.com", "gmail.com", "yahoo.com" };
+            
             var emailDomain = _userEmail.Split('@')[1];
 
             if (_allowedEmailDomains.Contains(_userEmail.ToLower()))
 
             {
                 context.Succeed(requirement);
-
             }
             if (!_allowedEmailDomains.Contains(_userEmail.ToLower()))
 
-            {
-              
+            {              
                  _allowedEmailDomains.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
                
             }
 
-
                 return Task.CompletedTask;
-
         }
 
     }

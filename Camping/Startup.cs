@@ -48,9 +48,9 @@ namespace Camping
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("EmailAddressOnly", policy => policy.Requirements.Add(new EmailAddressRequirment(email)));
+                options.AddPolicy("allowedEmailDomainsonly", policy => policy.Requirements.Add(new EmailAddressRequirment(emailDomain)));
 
-                options.AddPolicy("EmailAddressOnly1", policy => policy.Requirements.Add(new NewEmailAddressRequirment()));
+                
 
             });
         }
