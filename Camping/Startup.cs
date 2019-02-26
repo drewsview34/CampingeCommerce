@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Camping.Data;
 using Camping.Model.Interface;
 using Camping.Model.Services;
 using Camping.Models;
+using Camping.Models.Handler;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,10 +41,18 @@ namespace Camping
 
             //IdentityDB
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityLocalConnection"]));
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("allowedEmailDomainsonly", policy => policy.Requirements.Add(new EmailAddressRequirment()));
+
+                
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
