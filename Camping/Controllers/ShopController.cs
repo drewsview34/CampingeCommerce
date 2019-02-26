@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Camping.Model.Interface;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,20 @@ namespace Camping.Controllers
 {
     public class ShopController : Controller
     {
-        public IActionResult Index()
+
+        private IInventory _context { get; }
+
+
+        public ShopController(IInventory db)
         {
-            return View();
+            _context = db;
         }
+
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.GetInventory());
+        }
+
     }
 }

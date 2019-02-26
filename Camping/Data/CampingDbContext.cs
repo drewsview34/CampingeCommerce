@@ -21,101 +21,101 @@ namespace Camping.Data
                 new Product
                 {
                     ID = 1,
-                    Sku = "BS6-002",
-                    Name = "Tent",
-                    Price = 90,
-                    Description = "",
-                    Image = ""
+                    Sku = "BS6000",
+                    Name = "BackPack",
+                    Price = 30,
+                    Description = "This is a backpack",
+                    Image = "/Assets/backpack.jpg"
 
                 },
                  new Product
                  {
                      ID = 2,
-                     Sku = "BS6-003",
+                     Sku = "BS6001",
                      Name = "Sleeping Gear",
                      Price = 80,
-                     Description = "",
-                     Image = ""
+                     Description = "This is a sleeping bag",
+                     Image = "/Assets/sleepingbag.jpg"
 
                  },
                   new Product
                   {
                       ID = 3,
-                      Sku = "BS6-004",
+                      Sku = "BS6002",
                       Name = "FlashLight",
                       Price = 30,
-                      Description = "",
-                      Image = ""
+                      Description = "Can be used to help see",
+                      Image = "/Assets/flashlight.jpg"
 
                   },
                    new Product
                    {
                        ID = 4,
-                       Sku = "BS6-006",
-                       Name = "lanterns",
+                       Sku = "BS6003",
+                       Name = "Lantern",
                        Price = 40,
-                       Description = "",
-                       Image = ""
+                       Description = "Can be used to help see",
+                       Image = "/Assets/lantern.jpg"
 
                    },
                     new Product
                     {
                         ID = 5,
-                        Sku = "BS6-007",
+                        Sku = "BS6004",
                         Name = "Gloves",
                         Price = 80,
-                        Description = "",
-                        Image = ""
+                        Description = "A pair of gloves",
+                        Image = "/Assets/gloves.png"
 
                     },
                      new Product
                      {
                          ID = 6,
-                         Sku = "BS6-008",
+                         Sku = "BS6005",
                          Name = "Rain shell",
                          Price = 20,
-                         Description = "",
-                         Image = ""
+                         Description = "Water shedder",
+                         Image = "/Assets/rainshell.jpg"
 
                      },
                       new Product
                       {
                           ID = 7,
-                          Sku = "bs6-009",
-                          Name = "map",
+                          Sku = "BS6006",
+                          Name = "Map",
                           Price = 10,
-                          Description = "",
-                          Image = ""
+                          Description = "luis and clarks map",
+                          Image = "/Assets/map.jpg"
 
                       },
                        new Product
                        {
                            ID = 8,
-                           Sku = "BS6-000",
-                           Name = "lighter",
+                           Sku = "BS6007",
+                           Name = "Flint and Steel",
                            Price = 10,
-                           Description = "",
-                           Image = ""
+                           Description = "Fire starting kit",
+                           Image = "/Assets/flint.jpg"
 
                        },
                         new Product
                         {
                             ID = 9,
-                            Sku = "",
+                            Sku = "BS6008",
                             Name = "Hat",
                             Price = 50,
-                            Description = "",
-                            Image = ""
+                            Description = "Baseball cap",
+                            Image = "/Assets/hat.jpg"
 
                         },
                          new Product
                          {
                              ID = 10,
-                             Sku = "",
+                             Sku = "BS6009",
                              Name = "Gps",
                              Price = 200,
-                             Description = "",
-                             Image = ""
+                             Description = "Tracking device",
+                             Image = "/Assets/gps.jpg"
 
                          }
                          );
