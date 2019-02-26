@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,39 +12,46 @@ namespace Camping.Models.Handler
 {
     public class EmailAddressRequirment : AuthorizationHandler<EmailAddressRequirment>, IAuthorizationRequirement
     {
-        private string _Email;
-        public EmailAddressRequirment(string Email)
+        private string _userEmail;
+
+        public EmailAddressRequirment(string userEmail)
         {
-            _Email = Email;
+            _userEmail = userEmail;
+
+           
         }
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EmailAddressRequirment requirement)
         {
-            if(!context.User.HasClaim(c => c.Type == ClaimTypes.Email))
+            if (!context.User.HasClaim(c => c.Type == ClaimTypes.Email))
+
             {
                 return Task.CompletedTask;
+
             }
-            EmailAddress Email =Convert.Tolower( context.User.FindFirst(e => e.Type == ClaimTypes.Email).Value);
 
-            
-            ClaimsPrincipal user = ClaimsPrincipal.Current;
-            string email = user.FindFirst(ClaimTypes.Email).Value;
+            List<string> _allowedEmailDomains = new List<string> { "outlook.com", "hotmail.com", "gmail.com", "yahoo.com" };
+            //IdentityResult result = await base.ValidateAsync(user);
+            var emailDomain = _userEmail.Split('@')[1];
 
-            bool Validemail(string emailaddress)
+            if (_allowedEmailDomains.Contains(_userEmail.ToLower()))
+
             {
-                try
-                {
-                    var address = new System.Net.Mail.MailAddress(emailaddress);
-                    return address.Address == emailaddress;
-                }
-                catch
-                {
-                    return false;
-                }
+                context.Succeed(requirement);
+
             }
-            return Task.CompletedTask;
+            if (!_allowedEmailDomains.Contains(_userEmail.ToLower()))
+
+            {
+                var errors = errors.ToList();
+                errors.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
+                result = new IdentityResult(errors);
+            }
 
 
+                return Task.CompletedTask;
 
         }
+
     }
 }
+

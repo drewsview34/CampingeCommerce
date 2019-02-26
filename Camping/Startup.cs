@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Camping.Data;
 using Camping.Model.Interface;
@@ -47,7 +48,9 @@ namespace Camping
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("EmailAddressOnly", policy => policy.Requirements.Add(new EmailAddressRequirment(Email)));
+                options.AddPolicy("EmailAddressOnly", policy => policy.Requirements.Add(new EmailAddressRequirment(email)));
+
+                options.AddPolicy("EmailAddressOnly1", policy => policy.Requirements.Add(new NewEmailAddressRequirment()));
 
             });
         }
