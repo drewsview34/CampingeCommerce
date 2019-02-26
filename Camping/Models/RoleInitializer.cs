@@ -11,33 +11,33 @@ namespace Camping.Models
 {
     public class RoleInitializer
     {
-        private static readonly List<IdentityRole> Roles = new List<IdentityRole>()
-        {
-            new IdentityRole{Name= ApplicationRoles.Member, NormalizedName = ApplicationRoles.Member.ToUpper(), ConcurrencyStamp = Guid.NewGuid().ToString()},
-            new IdentityRole{Name = ApplicationRoles.Admin, NormalizedName = ApplicationRoles.Admin.ToUpper(), ConcurrencyStamp = Guid.NewGuid().ToString()}
-        };
-        //Looks at our DB and seeds the users with roles
-        public static void SeedData(IServiceProvider serviceProvider)
-        {
-            //looks at our DB
-            using (var dbContext = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
-            {
-                dbContext.Database.EnsureCreated();
-                AddRoles(dbContext);
-            }
-        }
+    //    private static readonly List<IdentityRole> Roles = new List<IdentityRole>()C:\Users\14253\source\repos\camping\Camping\Models\RoleInitializer.cs
+    //    {
+    //        new IdentityRole{Name= ApplicationRoles.Member, NormalizedName = ApplicationRoles.Member.ToUpper(), ConcurrencyStamp = Guid.NewGuid().ToString()},
+    //        new IdentityRole{Name = ApplicationRoles.Admin, NormalizedName = ApplicationRoles.Admin.ToUpper(), ConcurrencyStamp = Guid.NewGuid().ToString()}
+    //    };
+    //    //Looks at our DB and seeds the users with roles
+    //    public static void SeedData(IServiceProvider serviceProvider)
+    //    {
+    //        //looks at our DB
+    //        using (var dbContext = new ApplicationDbContext(serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
+    //        {
+    //            dbContext.Database.EnsureCreated();
+    //            AddRoles(dbContext);
+    //        }
+    //    }
         
-        public static void AddRoles(ApplicationDbContext context)
-        {
-            if (context.Roles.Any()) return;
+    //    public static void AddRoles(ApplicationDbContext context)
+    //    {
+    //        if (context.Roles.Any()) return;
 
-            foreach (var role in Roles)
-            {
-                context.Roles.Add(role);
-                context.SaveChanges();
-            }
+    //        foreach (var role in Roles)
+    //        {
+    //            context.Roles.Add(role);
+    //            context.SaveChanges();
+    //        }
 
-        }
+    //    }
 
     }
 }

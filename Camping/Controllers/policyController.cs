@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Camping.Controllers
 {
-    [Authorize]
+    [Authorize (Policy= "allowedEmailDomainsonly")]
     public class policyController:Controller
     {
         public IActionResult Index()

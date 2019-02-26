@@ -55,7 +55,7 @@ namespace Camping.Controllers
 
                     //LIST OF CLAIMS
                     List<Claim> claims = new List<Claim> { fullNameClaim, birthdayClaim, emailClaim };
-
+                    await _userManager.AddClaimsAsync(user, claims);
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");

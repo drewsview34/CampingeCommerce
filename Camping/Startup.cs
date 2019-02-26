@@ -41,14 +41,14 @@ namespace Camping
 
             //IdentityDB
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityLocalConnection"]));
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("allowedEmailDomainsonly", policy => policy.Requirements.Add(new EmailAddressRequirment(emailDomain)));
+                options.AddPolicy("allowedEmailDomainsonly", policy => policy.Requirements.Add(new EmailAddressRequirment()));
 
                 
 

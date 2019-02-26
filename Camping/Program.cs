@@ -17,24 +17,24 @@ namespace Camping
         public static void Main(string[] args)
         {
 
-            var host = CreateWebHostBuilder(args).Build();
-            using (var scope = host.Services.CreateScope())
-            {
-                // get our service provider
-                var services = scope.ServiceProvider;
+            CreateWebHostBuilder(args).Build().Run();
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    // get our service provider
+            //    var services = scope.ServiceProvider;
 
-                // call our seeded data
-                try
-                {
-                    RoleInitializer.SeedData(services);
-                }
-                catch (Exception)
-                {
-                    //logging
-                }
-            }
+            //    // call our seeded data
+            //    try
+            //    {
+            //        RoleInitializer.SeedData(services);
+            //    }
+            //    catch (Exception)
+            //    {
+            //        //logging
+            //    }
+            //}
 
-            host.Run();
+            //host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

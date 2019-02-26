@@ -12,14 +12,8 @@ namespace Camping.Models.Handler
 {
     public class EmailAddressRequirment : AuthorizationHandler<EmailAddressRequirment>, IAuthorizationRequirement
     {
-        private string _userEmail;
-
-        public EmailAddressRequirment(string userEmail)
-        {
-            _userEmail = userEmail;
-
-           
-        }
+        
+        
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EmailAddressRequirment requirement)
         {
             if (!context.User.HasClaim(c => c.Type == ClaimTypes.Email))
@@ -29,21 +23,21 @@ namespace Camping.Models.Handler
 
             }
 
-            List<string> _allowedEmailDomains = new List<string> { "hotmail.com", "gmail.com", "yahoo.com" };
-            
-            var emailDomain = _userEmail.Split('@')[1];
+            List<string> allowedEmailDomains = new List<string> { "hotmail.com", "gmail.com", "yahoo.com" };
 
-            if (_allowedEmailDomains.Contains(_userEmail.ToLower()))
-
+            var emailDomain = context.User.FindFirst(email => email.Type == ClaimTypes.Email).Value;
+            foreach(var email in allowedEmailDomains)
             {
-                context.Succeed(requirement);
-            }
-            if (!_allowedEmailDomains.Contains(_userEmail.ToLower()))
+                if (emailDomain.Contains(email))
 
-            {              
-                 _allowedEmailDomains.Add(String.Format("Email domain '{0}' is not allowed", emailDomain));
-               
+                {
+                    context.Succeed(requirement);
+                }
+
             }
+                
+
+           
 
                 return Task.CompletedTask;
         }
