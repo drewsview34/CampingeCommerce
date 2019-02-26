@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 
 namespace Camping.Controllers
 {
-    [Authorize(Policy = "ValidEmailAddressonly"]
-   
-    public class PolicyController:Controller
+    [Authorize (Policy= "allowedEmailDomainsonly")]
+    public class policyController:Controller
     {
         public IActionResult Index()
-
         {
             return View();
         }
-
-       
+        
     }
 }
