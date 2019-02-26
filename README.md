@@ -4,7 +4,7 @@ Developers: Shalom Belaineh && Joseph Pumphrey && Andrew Hinojosa
 
 ##Featured Products
 
-Camping Fellows provides campling products for your outdoor adventures.
+GoCamp provides camping products for your outdoor adventures.
 
 ##Claims
 * Full Name
