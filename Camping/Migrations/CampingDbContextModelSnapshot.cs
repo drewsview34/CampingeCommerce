@@ -42,92 +42,92 @@ namespace Camping.Migrations
                         new
                         {
                             ID = 1,
-                            Description = "",
-                            Image = "",
-                            Name = "Tent",
-                            Price = 90m,
-                            Sku = "BS6-002"
+                            Description = "This is a backpack",
+                            Image = "/Assets/backpack.jpg",
+                            Name = "BackPack",
+                            Price = 30m,
+                            Sku = "BS6000"
                         },
                         new
                         {
                             ID = 2,
-                            Description = "",
-                            Image = "",
+                            Description = "This is a sleeping bag",
+                            Image = "/Assets/sleepingbag.jpg",
                             Name = "Sleeping Gear",
                             Price = 80m,
-                            Sku = "BS6-003"
+                            Sku = "BS6001"
                         },
                         new
                         {
                             ID = 3,
-                            Description = "",
-                            Image = "",
+                            Description = "Can be used to help see",
+                            Image = "/Assets/flashlight.jpg",
                             Name = "FlashLight",
                             Price = 30m,
-                            Sku = "BS6-004"
+                            Sku = "BS6002"
                         },
                         new
                         {
                             ID = 4,
-                            Description = "",
-                            Image = "",
-                            Name = "lanterns",
+                            Description = "Can be used to help see",
+                            Image = "/Assets/lantern.jpg",
+                            Name = "Lantern",
                             Price = 40m,
-                            Sku = "BS6-006"
+                            Sku = "BS6003"
                         },
                         new
                         {
                             ID = 5,
-                            Description = "",
-                            Image = "",
+                            Description = "A pair of gloves",
+                            Image = "/Assets/gloves.png",
                             Name = "Gloves",
                             Price = 80m,
-                            Sku = "BS6-007"
+                            Sku = "BS6004"
                         },
                         new
                         {
                             ID = 6,
-                            Description = "",
-                            Image = "",
+                            Description = "Water shedder",
+                            Image = "/Assets/rainshell.jpg",
                             Name = "Rain shell",
                             Price = 20m,
-                            Sku = "BS6-008"
+                            Sku = "BS6005"
                         },
                         new
                         {
                             ID = 7,
-                            Description = "",
-                            Image = "",
-                            Name = "map",
+                            Description = "luis and clarks map",
+                            Image = "/Assets/map.jpg",
+                            Name = "Map",
                             Price = 10m,
-                            Sku = "bs6-009"
+                            Sku = "BS6006"
                         },
                         new
                         {
                             ID = 8,
-                            Description = "",
-                            Image = "",
-                            Name = "lighter",
+                            Description = "Fire starting kit",
+                            Image = "/Assets/flint.jpg",
+                            Name = "Flint and Steel",
                             Price = 10m,
-                            Sku = "BS6-000"
+                            Sku = "BS6007"
                         },
                         new
                         {
                             ID = 9,
-                            Description = "",
-                            Image = "",
+                            Description = "Baseball cap",
+                            Image = "/Assets/hat.jpg",
                             Name = "Hat",
                             Price = 50m,
-                            Sku = ""
+                            Sku = "BS6008"
                         },
                         new
                         {
                             ID = 10,
-                            Description = "",
-                            Image = "",
+                            Description = "Tracking device",
+                            Image = "/Assets/gps.jpg",
                             Name = "Gps",
                             Price = 200m,
-                            Sku = ""
+                            Sku = "BS6009"
                         });
                 });
 #pragma warning restore 612, 618
