@@ -1,5 +1,6 @@
 ﻿using Camping.Models;
 using Camping.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -83,6 +84,13 @@ namespace Camping.Controllers
             ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
 
             return View(lvm);
+        }
+        //Logout
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
         }
 
     }
