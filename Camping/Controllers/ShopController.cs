@@ -18,10 +18,18 @@ namespace Camping.Controllers
             _context = db;
         }
 
-
+        /// <summary>
+        /// /Shop
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             return View(await _context.GetInventory());
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            return View(await _context.GetIventory(id));
         }
 
     }
