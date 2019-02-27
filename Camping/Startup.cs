@@ -45,13 +45,17 @@ namespace Camping
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
+            //External Login Providers
+            services.AddAuthentication()
+             .AddFacebook(facebook =>
+             {
+                 facebook.AppId = Configuration["Authentication:Facebook:AppId"];
+                 facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+             });
 
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("allowedEmailDomainsonly", policy => policy.Requirements.Add(new EmailAddressRequirment()));
-
-                
-
             });
         }
 

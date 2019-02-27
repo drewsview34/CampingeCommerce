@@ -1,5 +1,11 @@
 ﻿@model Camping.Models.ViewModels.LoginViewModel
+@using Microsoft.AspNetCore.Identity;
+@using Camping.Models;
+
+@inject SignInManager<ApplicationUser> SignInManager
+
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <form method="post">
     <div asp-validation-summary="All"></div>
@@ -14,3 +20,16 @@
 
     <button type="submit">Sign In</button>
 </form>
+@{
+    var loginProviders = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+    if (loginProviders.Count > 0)
+    {
+        <h3>Login Providers</h3>
+        <form action="ExternalLogin" method="post">
+            @foreach (var provider in loginProviders)
+            {
+                <button type="submit" name="provider" value="@provider.Name" title="Log in using @provider.DisplayName"> @provider.Name</button>
+            }
+        </form>
+    }
+}
