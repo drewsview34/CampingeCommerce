@@ -41,10 +41,10 @@ namespace Camping
 
             //IdentityDB
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:IdentityLocalConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
 
             services.AddAuthorization(options =>
             {
@@ -60,12 +60,12 @@ namespace Camping
         {
 
             app.UseAuthentication();
+            app.UseStaticFiles();
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles();
 
             app.UseMvcWithDefaultRoute();
 

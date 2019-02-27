@@ -1,0 +1,14 @@
+﻿@model List<Camping.Model.ProductModel.Product>
+@{ 
+    Layout = "_Layout";
+}
+    
+
+<h1>Shop Index</h1>
+
+@foreach (var item in Model)
+{
+<div>
+    <a asp-action="Details" asp-route-id="@item.ID"><img src=@item.Image /></a>
+</div>
+}

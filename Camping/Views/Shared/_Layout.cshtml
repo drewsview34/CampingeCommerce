@@ -4,27 +4,30 @@
 @inject SignInManager<ApplicationUser> signInManager
 
 <!DOCTYPE html>
-
-<html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
-<body>
-    <div>
+<header>
+    <nav>
         @if (signInManager.IsSignedIn(User))
         {
             <span>Welcome @User.Claims.First(u => u.Type == "FullName").Value</span>
         }
         else
         {
-            <p>PLEASE LOG IN!</p>
             <a asp-controller="Account" asp-action="Login">Login</a>
             <a asp-controller="Account" asp-action="Register">Register</a>
         }
-    </div>
+
+        <a asp-controller="Shop" asp-action="Index">Shop</a>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="policy" asp-action="Index">Coupons</a>
+    </nav>
+
+</header>
+<body>
     <div>
         @RenderBody()
     </div>
 </body>
-</html>

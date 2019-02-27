@@ -9,6 +9,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\backpack.jpg" />
+    <None Include="wwwroot\Assets\flashlight.jpg" />
+    <None Include="wwwroot\Assets\flint.jpg" />
+    <None Include="wwwroot\Assets\gloves.png" />
+    <None Include="wwwroot\Assets\gps.jpg" />
+    <None Include="wwwroot\Assets\hat.jpg" />
+    <None Include="wwwroot\Assets\lantern.jpg" />
+    <None Include="wwwroot\Assets\map.jpg" />
+    <None Include="wwwroot\Assets\rainshell.jpg" />
+    <None Include="wwwroot\Assets\sleepingbag.jpg" />
   </ItemGroup>
 
 </Project>
