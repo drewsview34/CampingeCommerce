@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Camping.Migrations.ApplicationDb
 {
-    public partial class working : Migration
+    public partial class fs : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

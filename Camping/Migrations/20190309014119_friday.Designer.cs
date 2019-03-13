@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Camping.Migrations
 {
     [DbContext(typeof(CampingDbContext))]
-    [Migration("20190226234639_seed")]
-    partial class seed
+    [Migration("20190309014119_friday")]
+    partial class friday
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

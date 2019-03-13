@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Camping.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190220232934_please")]
-    partial class please
+    [Migration("20190308032326_fs")]
+    partial class fs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

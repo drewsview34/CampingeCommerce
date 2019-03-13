@@ -41,14 +41,14 @@ namespace Camping
 
             //IdentityDB
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration["ConnectionStrings:IdentityDefaultConnection"]));
+            options.UseSqlServer(Configuration["ConnectionStrings:IdentityProductionConnection"]));
             //CampDb
             services.AddDbContext<CampingDbContext>(options =>
             options.UseSqlServer(Configuration["ConnectionStrings:ProductionConnection"]));
             //External Login Providers
             services.AddAuthentication()
              .AddFacebook(facebook =>
-             {
+             {.
                  facebook.AppId = Configuration["Authentication:Facebook:AppId"];
                  facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
              });

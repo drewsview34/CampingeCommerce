@@ -2,7 +2,7 @@
 
 namespace Camping.Migrations
 {
-    public partial class cart : Migration
+    public partial class friday : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

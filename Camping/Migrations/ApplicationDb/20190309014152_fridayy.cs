@@ -2,7 +2,7 @@
 
 namespace Camping.Migrations.ApplicationDb
 {
-    public partial class Init : Migration
+    public partial class fridayy : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
