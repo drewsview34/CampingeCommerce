@@ -48,7 +48,7 @@ namespace Camping
             //External Login Providers
             services.AddAuthentication()
              .AddFacebook(facebook =>
-             {.
+             {
                  facebook.AppId = Configuration["Authentication:Facebook:AppId"];
                  facebook.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
              });
